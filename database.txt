@@ -1,0 +1,27 @@
+-linha-
+ -id
+ -nome
+ 
+-horario-
+ -id
+ -fk_linha
+ -fk_saida
+ -fk_chegada
+
+-hora-
+ -id
+ -valor
+
+-hora_horario- 
+ -id
+ -fk_hora
+ -fk_horario
+_________________________________________
+
+-usuario-
+ -id
+ -nome
+ -email
+ -saldo
+ -numero_cartao
+
