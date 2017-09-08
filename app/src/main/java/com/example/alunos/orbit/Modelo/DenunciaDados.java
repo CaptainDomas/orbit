@@ -35,7 +35,7 @@ public class DenunciaDados {
         public void remover(int id) {
             SQLiteDatabase db = bd.getWritableDatabase();
 
-            String[] filtros = new String[1];
+            String[] filtros =new String[1];
             filtros[0] = id + "";
 
             db.delete("Denuncia", "_id = ?", filtros);
