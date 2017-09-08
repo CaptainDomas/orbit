@@ -25,3 +25,6 @@ _________________________________________
  -saldo
  -numero_cartao
 
+-terminal-
+ -id
+ -nome
