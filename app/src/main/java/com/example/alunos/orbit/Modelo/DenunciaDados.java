@@ -22,13 +22,14 @@ public class DenunciaDados {
         }
 
         public void inserir(DenunciaDados novaDenuncia) {
-            SQLiteDatabase db = bd.getWritableDatabase();
+          /*  SQLiteDatabase db = bd.getWritableDatabase();
 
             ContentValues values = new ContentValues();
+
             values.put("DenunciaDados", novaDenunciaDados);
             values.put("id_DenunciaDados", novaDenuncia.getDenuncia().getID());
 
-            db.insert("Denuncia", null, values);
+            db.insert("Denuncia", null, values); */
         }
 
         public void remover(int id) {
