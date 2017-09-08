@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.alunos.orbit.model.dao.HoraDAO;
 import com.example.alunos.orbit.model.dao.HorarioDAO;
 
 /**
@@ -22,6 +23,8 @@ public class DataBase extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase dataBase) {
         dataBase.execSQL(HorarioDAO.getTabela());
+        dataBase.execSQL(HoraDAO.getTabela());
+
     }
 
     @Override

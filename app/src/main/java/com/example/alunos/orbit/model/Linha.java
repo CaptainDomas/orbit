@@ -7,12 +7,12 @@ package com.example.alunos.orbit.model;
 public class Linha {
     private int id;
     private String nome;
-    private int numero;
+    private int codigoLinha;
 
     public Linha(int id, String nome, int numero) {
         this.id = id;
         this.nome = nome;
-        this.numero = numero;
+        this.codigoLinha = numero;
     }
 
     public int getId() {
@@ -31,11 +31,11 @@ public class Linha {
         this.nome = nome;
     }
 
-    public int getNumero() {
-        return numero;
+    public int getCodigoLinha() {
+        return codigoLinha;
     }
 
-    public void setNumero(int numero) {
-        this.numero = numero;
+    public void setCodigoLinha(int codigoLinha) {
+        this.codigoLinha = codigoLinha;
     }
 }

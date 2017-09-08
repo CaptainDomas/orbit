@@ -6,7 +6,7 @@ package com.example.alunos.orbit.model.dao;
 
 public class HorarioDAO {
 
-    public static String getTabela(){
+    public static String getTabela() {
         StringBuilder builder = new StringBuilder();
         builder.append("CREATE TABLE horario(");
         builder.append("id INTEGER NOT NULL PRIMARY KEY,");
@@ -19,5 +19,9 @@ public class HorarioDAO {
         builder.append(");");
 
         return builder.toString();
+    }
+
+    public static void teste() {
+
     }
 }
