@@ -1,64 +1,47 @@
 package com.example.alunos.orbit.Modelo;
 
-/**
- * Created by Avell 1513 on 04/09/2017.
- */
-
 public class Denuncia {
+    private int id;
+    private String avaliacao;
+    private String idUsuario;
+    private String texto;
 
-        private int ID;
-        private int ID_usuario;
-        private String Avaliacao;
-        private String Texto;
-        private Denuncia denuncia;
-
-        public Denuncia(int id, String avaliacao, int ID_usuario,String texto,Denuncia denuncia) {
-            this.ID = id;
-            this.Avaliacao = avaliacao;
-            this.ID_usuario=ID_usuario;
-            this.Texto=texto;
-            this.denuncia=denuncia;
-        }
-
-        public int getID() {
-            return ID;
-        }
-
-        public void setID(int ID) {
-            this.ID = ID;
-        }
-
-        public int getID_usuario() {
-            return ID_usuario;
-        }
-
-        public void setID_usuario(int ID_usuario) {
-            this.ID_usuario = ID_usuario;
-        }
-
-        public void setAvaliacao(String avaliacao) {
-            Avaliacao = avaliacao;
-        }
-
-        public String getTexto() {
-            return Texto;
-        }
-
-        public void setTexto(String texto) {
-            Texto = texto;
-        }
-
-        public Denuncia getDenuncia() {
-            return denuncia;
-        }
-
-        public void setDenuncia(Denuncia denuncia) {
-            this.denuncia = denuncia;
-        }
-
-        public String getAvaliacao() {
-            return Avaliacao;
-        }
-
+    public Denuncia(int id, String avaliacao, String idUsuario, String texto) {
+        this.id = id;
+        this.avaliacao = avaliacao;
+        this.idUsuario = idUsuario;
+        this.texto = texto;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getAvaliacao() {
+        return avaliacao;
+    }
+
+    public void setAvaliacao(String avaliacao) {
+        this.avaliacao = avaliacao;
+    }
+
+    public String getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(String idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public String getTexto() {
+        return texto;
+    }
+
+    public void setTexto(String texto) {
+        this.texto = texto;
+    }
+}
