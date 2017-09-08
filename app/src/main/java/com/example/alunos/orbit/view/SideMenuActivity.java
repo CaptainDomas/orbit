@@ -1,4 +1,4 @@
-package com.example.alunos.orbit.View;
+package com.example.alunos.orbit.view;
 
 import android.content.Intent;
 import android.os.Bundle;

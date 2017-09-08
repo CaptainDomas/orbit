@@ -1,4 +1,4 @@
-package com.example.alunos.orbit.View;
+package com.example.alunos.orbit.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
