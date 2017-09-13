@@ -13,7 +13,9 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
         <TextView
             android:layout_width="wrap_content"
@@ -38,13 +40,13 @@
             android:textColor="#000000" />
 
         <EditText
+            android:id="@+id/editText"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editText"
-            android:textSize="25dp"
             android:layout_below="@+id/textView2"
             android:layout_toEndOf="@+id/editText2"
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            android:textSize="25dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -99,13 +101,13 @@
             android:layout_marginLeft="20dp" />
 
         <Button
+            android:id="@+id/button3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cadastrar"
-            android:id="@+id/button3"
-            android:textSize="25dp"
             android:layout_gravity="center_horizontal"
-            android:textColor="#000000" />
+            android:text="Cadastrar"
+            android:textColor="#000000"
+            android:textSize="25dp" />
 
     </LinearLayout>
 

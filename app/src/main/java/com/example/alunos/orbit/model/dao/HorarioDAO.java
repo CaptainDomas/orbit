@@ -1,10 +1,27 @@
 package com.example.alunos.orbit.model.dao;
 
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+
+import com.example.alunos.orbit.database.DataBase;
+import com.example.alunos.orbit.model.Horario;
+
+
+
 /**
  * Created by Avell 1513 on 08/09/2017.
  */
 
 public class HorarioDAO {
+
+    private DataBase database;
+    private Context context;
+
+    public HorarioDAO(Context context) {
+        database = new DataBase(context);
+        this.context = context;
+    }
 
     public static String getTabela() {
         StringBuilder builder = new StringBuilder();
@@ -20,8 +37,14 @@ public class HorarioDAO {
 
         return builder.toString();
     }
+    public void inserir(Horario novoHorario) {
+        SQLiteDatabase dataBase = database.getWritableDatabase();
 
-    public static void teste() {
+        ContentValues values = new ContentValues();
+        values.put("id",novoHorario.getId());
 
+        dataBase.insert("hora", null, values);
     }
+
+
 }

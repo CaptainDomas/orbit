@@ -16,4 +16,5 @@ public class TerminalDAO {
 
         return builder.toString();
     }
+
 }
