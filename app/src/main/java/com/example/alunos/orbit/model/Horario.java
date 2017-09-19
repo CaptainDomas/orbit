@@ -1,6 +1,5 @@
 package com.example.alunos.orbit.model;
 
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -10,16 +9,35 @@ import java.util.List;
 public class Horario {
     private int id;
     private Linha linha;
-    private Terminal chegada;
-    private Terminal saida;
+    private Terminal terminalChegada;
+    private Terminal terminalSaida;
     private List<Hora> partidas;
 
-    public Horario(int id, Linha linha, Terminal chegada, Terminal saida, List<Hora> partidas) {
+
+
+    public Horario(int id,Linha linha, Terminal  terminalSaida, Terminal  terminalChegada,  List<Hora> partidas) {
         this.id = id;
         this.linha = linha;
-        this.chegada = chegada;
-        this.saida = saida;
+        this.terminalChegada = terminalChegada;
+        this.terminalSaida = terminalSaida;
         this.partidas = partidas;
+    }
+
+
+    public Terminal getTerminalChegada() {
+        return terminalChegada;
+    }
+
+    public void setTerminalChegada(Terminal terminalChegada) {
+        this.terminalChegada = terminalChegada;
+    }
+
+    public Terminal getTerminalSaida() {
+        return terminalSaida;
+    }
+
+    public void setTerminalSaida(Terminal terminalSaida) {
+        this.terminalSaida = terminalSaida;
     }
 
     public int getId() {
@@ -36,22 +54,6 @@ public class Horario {
 
     public void setLinha(Linha linha) {
         this.linha = linha;
-    }
-
-    public Terminal getChegada() {
-        return chegada;
-    }
-
-    public void setChegada(Terminal chegada) {
-        this.chegada = chegada;
-    }
-
-    public Terminal getSaida() {
-        return saida;
-    }
-
-    public void setSaida(Terminal saida) {
-        this.saida = saida;
     }
 
     public List<Hora> getPartidas() {

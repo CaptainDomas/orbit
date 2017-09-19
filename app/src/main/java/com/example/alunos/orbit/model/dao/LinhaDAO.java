@@ -68,7 +68,7 @@ public class LinhaDAO {
         String[] filtros = new String[1];
         filtros[0] = linha.getId() + "";
 
-        dataBase.update("hora", values, "_id = ?", filtros);
+        dataBase.update("linha", values, "_id = ?", filtros);
     }
 
     public Linha buscar(int id) {

@@ -41,8 +41,8 @@ public class HoraDAO {
         SQLiteDatabase dataBase = database.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put("id",novaHora.getId());
-        values.put("valor",novaHora.getValor());
+        values.put("id", novaHora.getId());
+        values.put("valor", novaHora.getValor());
 
         dataBase.insert("hora", null, values);
     }
@@ -56,12 +56,13 @@ public class HoraDAO {
 
         dataBase.delete("hora", "_id = ?", filtros);
     }
+
     public void editar(Hora hora) {
         SQLiteDatabase dataBase = database.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put("id",hora.getId());
-        values.put("valor",hora.getValor());
+        values.put("id", hora.getId());
+        values.put("valor", hora.getValor());
 
 
         String[] filtros = new String[1];
@@ -69,6 +70,7 @@ public class HoraDAO {
 
         dataBase.update("hora", values, "_id = ?", filtros);
     }
+
     public Hora buscar(int id) {
         Hora hora = null;
         SQLiteDatabase dataBase = database.getReadableDatabase();
@@ -91,6 +93,7 @@ public class HoraDAO {
 
         return hora;
     }
+
     public ArrayList<Hora> buscarHoras() {
         ArrayList<Hora> turmas = new ArrayList<Hora>();
         SQLiteDatabase dataBase = database.getReadableDatabase();
@@ -99,7 +102,7 @@ public class HoraDAO {
         Cursor cursor = dataBase.rawQuery(sql, null);
 
         if (cursor.moveToFirst()) {
-                do {
+            do {
                 int id = cursor.getInt(0);
                 String valor = cursor.getString(1);
 

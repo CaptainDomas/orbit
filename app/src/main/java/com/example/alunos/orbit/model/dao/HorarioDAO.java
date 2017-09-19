@@ -2,11 +2,13 @@ package com.example.alunos.orbit.model.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.alunos.orbit.database.DataBase;
 import com.example.alunos.orbit.model.Horario;
-
+import com.example.alunos.orbit.model.Hora;
+import com.example.alunos.orbit.model.Terminal;
 
 
 /**
@@ -37,14 +39,65 @@ public class HorarioDAO {
 
         return builder.toString();
     }
+
     public void inserir(Horario novoHorario) {
         SQLiteDatabase dataBase = database.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put("id",novoHorario.getId());
+        values.put("id", novoHorario.getId());
+        values.put("linha", novoHorario.getLinha().getCodigoLinha());
+        values.put("terminalSaida", novoHorario.getTerminalSaida().getId());
+        values.put("terminalChegada", novoHorario.getTerminalChegada().getId());
 
-        dataBase.insert("hora", null, values);
+        dataBase.insert("horario", null, values);
     }
 
+    public void remover(int id) {
+        SQLiteDatabase dataBase = database.getWritableDatabase();
+
+
+        String[] filtros = new String[1];
+        filtros[0] = id + "";
+
+        dataBase.delete("horario", "_id = ?", filtros);
+    }
+
+    public void editar(Horario horario) {
+        SQLiteDatabase dataBase = database.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("id", horario.getId());
+        values.put("linha", horario.getLinha().getCodigoLinha());
+        values.put("terminalSaida", horario.getTerminalSaida().getId());
+        values.put("terminalChegada", horario.getTerminalChegada().getId());
+
+
+        String[] filtros = new String[1];
+        filtros[0] = horario.getId() + "";
+
+        dataBase.update("horario", values, "_id = ?", filtros);
+    }
+
+    public Horario buscar(int id) {
+        Horario horario = null;
+        SQLiteDatabase dataBase = database.getReadableDatabase();
+
+        String sql = "SELECT _id FROM horario WHERE id = ?";
+        String[] filtros = new String[1];
+        filtros[0] = id + "";
+
+        Cursor cursor = dataBase.rawQuery(sql, filtros);
+        if (cursor.moveToFirst()) {
+            id = cursor.getInt(0);
+            int linha = cursor.getInt(1);
+            int terminalSaida = cursor.getInt(2);
+            int terminalChegada = cursor.getInt(3);
+           int  partidas = cursor.getInt(4);
+
+            horario = new Horario(id,terminalSaida,terminalChegada,partidas);
+        }
+
+        return horario;
+    }
 
 }
