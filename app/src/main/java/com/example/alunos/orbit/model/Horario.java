@@ -14,8 +14,7 @@ public class Horario {
     private List<Hora> partidas;
 
 
-
-    public Horario(int id,Linha linha, Terminal  terminalSaida, Terminal  terminalChegada,  List<Hora> partidas) {
+    public Horario(int id, Linha linha, Terminal terminalSaida, Terminal terminalChegada, List<Hora> partidas) {
         this.id = id;
         this.linha = linha;
         this.terminalChegada = terminalChegada;

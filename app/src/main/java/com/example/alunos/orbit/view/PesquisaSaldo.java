@@ -1,15 +1,13 @@
 package com.example.alunos.orbit.view;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
-import com.example.alunos.orbit.R;
+import android.support.v7.app.AppCompatActivity;
 
 public class PesquisaSaldo extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pesquisa_saldo);
+        //setContentView(R.layout.activity_pesquisa_saldo);
     }
 }

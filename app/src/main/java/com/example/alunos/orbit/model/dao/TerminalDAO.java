@@ -76,7 +76,7 @@ public class TerminalDAO {
         Terminal terminal = null;
         SQLiteDatabase dataBase = database.getReadableDatabase();
 
-        String sql = "SELECT _id, nome, endereco FROM terminal WHERE id = ?";
+        String sql = "SELECT id, nome, endereco FROM terminal WHERE id = ?";
         String[] filtros = new String[1];
         filtros[0] = id + "";
 
@@ -87,7 +87,7 @@ public class TerminalDAO {
             String endereco = cursor.getString(2);
 
             TerminalDAO tDao = new TerminalDAO(context);
-            Terminal terminalHorario =tDao.buscar(id);
+            Terminal terminalHorario = tDao.buscar(id);
 
             terminal = new Terminal(id, nome, endereco);
         }
@@ -98,7 +98,7 @@ public class TerminalDAO {
         ArrayList<Terminal> linhas = new ArrayList<Terminal>();
         SQLiteDatabase dataBase = database.getReadableDatabase();
 
-        String sql = "SELECT id FROM linha";
+        String sql = "SELECT id, nome, endereco FROM linha";
         Cursor cursor = dataBase.rawQuery(sql, null);
 
         if (cursor.moveToFirst()) {

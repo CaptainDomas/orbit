@@ -4,17 +4,12 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.alunos.orbit.model.Linha;
-import com.example.alunos.orbit.model.Usuario;
 import com.example.alunos.orbit.model.dao.HoraDAO;
 import com.example.alunos.orbit.model.dao.HorarioDAO;
 import com.example.alunos.orbit.model.dao.LinhaDAO;
 import com.example.alunos.orbit.model.dao.TerminalDAO;
 import com.example.alunos.orbit.model.dao.UsuarioDAO;
 
-/**
- * Created by Avell 1513 on 08/09/2017.
- */
 
 public class DataBase extends SQLiteOpenHelper {
 
@@ -27,6 +22,7 @@ public class DataBase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase dataBase) {
+
         dataBase.execSQL(HoraDAO.getTabela());
         dataBase.execSQL(HorarioDAO.getTabela());
         dataBase.execSQL(TerminalDAO.getTabela());

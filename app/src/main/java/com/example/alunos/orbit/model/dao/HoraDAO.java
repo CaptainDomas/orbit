@@ -84,7 +84,6 @@ public class HoraDAO {
             id = cursor.getInt(0);
             String valor = cursor.getString(1);
 
-
             HoraDAO hDao = new HoraDAO(context);
             Hora horaHorario = hDao.buscar(id);
 
@@ -98,7 +97,7 @@ public class HoraDAO {
         ArrayList<Hora> turmas = new ArrayList<Hora>();
         SQLiteDatabase dataBase = database.getReadableDatabase();
 
-        String sql = "SELECT _id FROM turma";
+        String sql = "SELECT id, valor FROM hora";
         Cursor cursor = dataBase.rawQuery(sql, null);
 
         if (cursor.moveToFirst()) {

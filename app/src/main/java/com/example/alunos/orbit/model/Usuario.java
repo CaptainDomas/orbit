@@ -11,7 +11,7 @@ public class Usuario {
     private int numCartao;
     private int saldo;
 
-    public Usuario(int id, String nome, String email,int numCartao,int saldo) {
+    public Usuario(int id, String nome, String email, int numCartao, int saldo) {
         this.id = id;
         this.nome = nome;
         this.email = email;

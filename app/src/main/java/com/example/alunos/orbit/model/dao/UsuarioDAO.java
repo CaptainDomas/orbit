@@ -78,7 +78,7 @@ public class UsuarioDAO {
         Usuario usuario = null;
         SQLiteDatabase dataBase = database.getReadableDatabase();
 
-        String sql = "SELECT _id, nome, email,numero_cartao,saldo FROM terminal WHERE id = ?";
+        String sql = "SELECT id, nome, email,numero_cartao,saldo FROM terminal WHERE id = ?";
         String[] filtros = new String[1];
         filtros[0] = id + "";
 
@@ -123,6 +123,5 @@ public class UsuarioDAO {
 
         return null;
 }
-
 
 }

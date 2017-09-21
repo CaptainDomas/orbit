@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.alunos.orbit.database.DataBase;
 import com.example.alunos.orbit.model.Horario;
-import com.example.alunos.orbit.model.Hora;
+import com.example.alunos.orbit.model.Linha;
 import com.example.alunos.orbit.model.Terminal;
 
 
@@ -55,7 +55,6 @@ public class HorarioDAO {
     public void remover(int id) {
         SQLiteDatabase dataBase = database.getWritableDatabase();
 
-
         String[] filtros = new String[1];
         filtros[0] = id + "";
 
@@ -82,7 +81,7 @@ public class HorarioDAO {
         Horario horario = null;
         SQLiteDatabase dataBase = database.getReadableDatabase();
 
-        String sql = "SELECT _id FROM horario WHERE id = ?";
+        String sql = "SELECT id, linha, terminalSaida, terminalChegada FROM horario WHERE id = ?";
         String[] filtros = new String[1];
         filtros[0] = id + "";
 
@@ -92,9 +91,12 @@ public class HorarioDAO {
             int linha = cursor.getInt(1);
             int terminalSaida = cursor.getInt(2);
             int terminalChegada = cursor.getInt(3);
-           int  partidas = cursor.getInt(4);
 
-            horario = new Horario(id,terminalSaida,terminalChegada,partidas);
+            Linha linhaClass = new LinhaDAO(context).buscar(linha);
+            Terminal terminalSaidaClass = new TerminalDAO(context).buscar(terminalChegada);
+            Terminal terminalChegadaClass = new TerminalDAO(context).buscar(terminalChegada);
+
+            horario = new Horario(id,linhaClass,terminalSaidaClass,terminalChegadaClass,null);
         }
 
         return horario;

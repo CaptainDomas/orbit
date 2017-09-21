@@ -75,7 +75,7 @@ public class LinhaDAO {
         Linha linha = null;
         SQLiteDatabase dataBase = database.getReadableDatabase();
 
-        String sql = "SELECT _id, nome, codigolinha FROM linha WHERE id = ?";
+        String sql = "SELECT id, nome, codigolinha FROM linha WHERE id = ?";
         String[] filtros = new String[1];
         filtros[0] = id + "";
 
