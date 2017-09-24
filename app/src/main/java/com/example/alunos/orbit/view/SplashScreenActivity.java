@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
-public class activity_splash_screen extends AppCompatActivity implements Runnable {
+public class SplashScreenActivity extends AppCompatActivity implements Runnable {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +17,7 @@ public class activity_splash_screen extends AppCompatActivity implements Runnabl
     }
 
     public void run() {
-        startActivity(new Intent(this, com.example.alunos.orbit.view.Cadastro.class));
+        startActivity(new Intent(this, CadastroActivity.class));
         finish();
     }
 }

@@ -1,7 +1,7 @@
 package com.example.alunos.orbit.view;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.example.alunos.orbit.R;
 
-public class Avaliacao extends Activity {
+public class AvaliacaoActivity extends AppCompatActivity {
 
     private RatingBar ratingBar;
     private TextView txtValorAvaliacao;

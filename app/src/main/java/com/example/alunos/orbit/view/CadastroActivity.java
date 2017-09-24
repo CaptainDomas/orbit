@@ -9,7 +9,7 @@ import com.example.alunos.orbit.R;
 import com.example.alunos.orbit.model.Usuario;
 import com.example.alunos.orbit.model.dao.UsuarioDAO;
 
-public class Cadastro extends AppCompatActivity {
+public class CadastroActivity extends AppCompatActivity {
     private Button btn;
 
     @Override
