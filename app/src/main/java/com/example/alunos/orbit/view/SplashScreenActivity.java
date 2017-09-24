@@ -17,7 +17,7 @@ public class SplashScreenActivity extends AppCompatActivity implements Runnable 
     }
 
     public void run() {
-        startActivity(new Intent(this, CadastroActivity.class));
+        startActivity(new Intent(this, LoginActivity.class));
         finish();
     }
 }

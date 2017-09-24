@@ -13,21 +13,20 @@ public class CadastroActivity extends AppCompatActivity {
     private Button btn;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-{
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(com.example.alunos.orbit.R.layout.activity_cadastro);
 
-        btn = (Button)findViewById(R.id.insertButton);
+        btn = (Button) findViewById(R.id.insertButton);
 
         btn.setOnClickListener(new View.OnClickListener() {
-@Override
-public void onClick(View view) {
+            @Override
+            public void onClick(View view) {
 
-        Usuario usuario = new Usuario(1,"teste","teste@teste.com",1,1);
-        UsuarioDAO usuarioDAO = new UsuarioDAO(getApplicationContext());
-        usuarioDAO.inserir(usuario);
-        }
+                Usuario usuario = new Usuario(1, "teste", "teste@teste.com", 1, 1);
+                UsuarioDAO usuarioDAO = new UsuarioDAO(getApplicationContext());
+                usuarioDAO.inserir(usuario);
+            }
         });
-        }
-        }
+    }
+}
