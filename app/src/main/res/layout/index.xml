@@ -23,7 +23,8 @@
     <LinearLayout
         android:id="@+id/linearLayoutAux"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:layout_weight="0.22">
 
         <TextView
             android:id="@+id/lblResultado"

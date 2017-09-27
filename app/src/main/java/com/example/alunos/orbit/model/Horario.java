@@ -7,36 +7,34 @@ import java.util.List;
  */
 
 public class Horario {
+
     private int id;
     private Linha linha;
     private Terminal terminalChegada;
     private Terminal terminalSaida;
-    private List<Hora> partidas;
+    private List<String> partidas;
+    private TipoDiaSemanaEnum tipoDiaSemana;
 
-
-    public Horario(int id, Linha linha, Terminal terminalSaida, Terminal terminalChegada, List<Hora> partidas) {
+    public Horario(int id, Linha linha, Terminal terminalChegada, Terminal terminalSaida, List<String> partidas, TipoDiaSemanaEnum tipoDiaSemana) {
         this.id = id;
         this.linha = linha;
         this.terminalChegada = terminalChegada;
         this.terminalSaida = terminalSaida;
         this.partidas = partidas;
+        this.tipoDiaSemana = tipoDiaSemana;
     }
 
+    public Horario( Linha linha, Terminal terminalChegada, Terminal terminalSaida, List<String> partidas, TipoDiaSemanaEnum tipoDiaSemana) {
 
-    public Terminal getTerminalChegada() {
-        return terminalChegada;
-    }
-
-    public void setTerminalChegada(Terminal terminalChegada) {
+        this.linha = linha;
         this.terminalChegada = terminalChegada;
-    }
-
-    public Terminal getTerminalSaida() {
-        return terminalSaida;
-    }
-
-    public void setTerminalSaida(Terminal terminalSaida) {
         this.terminalSaida = terminalSaida;
+        this.partidas = partidas;
+        this.tipoDiaSemana = tipoDiaSemana;
+    }
+
+    public Horario(int id, Linha linhaClass, Terminal terminalSaidaClass, Terminal terminalChegadaClass, Object tipoDiaSemana) {
+
     }
 
     public int getId() {
@@ -55,11 +53,35 @@ public class Horario {
         this.linha = linha;
     }
 
-    public List<Hora> getPartidas() {
+    public Terminal getTerminalChegada() {
+        return terminalChegada;
+    }
+
+    public void setTerminalChegada(Terminal terminalChegada) {
+        this.terminalChegada = terminalChegada;
+    }
+
+    public Terminal getTerminalSaida() {
+        return terminalSaida;
+    }
+
+    public void setTerminalSaida(Terminal terminalSaida) {
+        this.terminalSaida = terminalSaida;
+    }
+
+    public List<String> getPartidas() {
         return partidas;
     }
 
-    public void setPartidas(List<Hora> partidas) {
+    public void setPartidas(List<String> partidas) {
         this.partidas = partidas;
+    }
+
+    public TipoDiaSemanaEnum getTipoDiaSemana() {
+        return tipoDiaSemana;
+    }
+
+    public void setTipoDiaSemana(TipoDiaSemanaEnum tipoDiaSemana) {
+        this.tipoDiaSemana = tipoDiaSemana;
     }
 }

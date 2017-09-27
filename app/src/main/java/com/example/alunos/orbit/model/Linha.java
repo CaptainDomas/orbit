@@ -9,10 +9,16 @@ public class Linha {
     private String nome;
     private int codigoLinha;
 
-    public Linha(int id, String nome, int numero) {
-        this.id = id;
+    public Linha( String nome, int numero) {
+
         this.nome = nome;
         this.codigoLinha = numero;
+    }
+
+    public Linha(int id, String nome, int codigoLinha) {
+        this.id = id;
+        this.nome = nome;
+        this.codigoLinha = codigoLinha;
     }
 
     public int getId() {

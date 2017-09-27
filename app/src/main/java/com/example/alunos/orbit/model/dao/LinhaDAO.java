@@ -9,6 +9,8 @@ import com.example.alunos.orbit.database.DataBase;
 import com.example.alunos.orbit.model.Linha;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by Avell 1513 on 08/09/2017.
@@ -35,15 +37,26 @@ public class LinhaDAO {
         return builder.toString();
     }
 
-    public void inserir(Linha novalinha) {
+    public void cargaInicial(){
+        Linha linha12= new Linha("Via Esc. Agricola",12);
+        Linha linha32 = new Linha("Via Água Verde",32);
+
+        List<Linha> linhas = Arrays.asList(linha12,linha32);
+
+        for (Linha linha : linhas) {
+            this.inserir(linha);
+        }
+    }
+
+
+    public int inserir(Linha novalinha) {
         SQLiteDatabase dataBase = database.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put("id", novalinha.getId());
         values.put("nome", novalinha.getNome());
         values.put("codigolinha", novalinha.getCodigoLinha());
-
-        dataBase.insert("linha", null, values);
+        Long id = dataBase.insert("linha", null, values);
+        return id.intValue();
     }
 
     public void remover(int id) {

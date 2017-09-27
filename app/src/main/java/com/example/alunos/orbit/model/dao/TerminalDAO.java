@@ -10,6 +10,8 @@ import com.example.alunos.orbit.database.DataBase;
 import com.example.alunos.orbit.model.Terminal;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by Avell 1513 on 08/09/2017.
@@ -21,12 +23,12 @@ public class TerminalDAO {
     private Context context;
 
 
-    public TerminalDAO (Context context) {
+    public TerminalDAO(Context context) {
         database = new DataBase(context);
         this.context = context;
     }
 
-    public static String getTabela(){
+    public static String getTabela() {
         StringBuilder builder = new StringBuilder();
         builder.append("CREATE TABLE terminal(");
         builder.append("id INTEGER NOT NULL PRIMARY KEY,");
@@ -35,10 +37,21 @@ public class TerminalDAO {
         builder.append(");");
 
         return builder.toString();
-}
 
 
-    public void inserir(Terminal novoTerminal) {
+    }
+
+    public void cargaInicial() {
+        Terminal terminalAterro = new Terminal("Aterro", "");
+        Terminal terminalVelha = new Terminal("Velha", "");
+        List<Terminal> terminais = Arrays.asList(terminalAterro, terminalVelha);
+        for (Terminal terminal : terminais) {
+            this.inserir(terminal);
+        }
+    }
+
+
+    public int inserir(Terminal novoTerminal) {
         SQLiteDatabase dataBase = database.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -47,8 +60,9 @@ public class TerminalDAO {
         values.put("endereco", novoTerminal.getEndereco());
 
 
-        dataBase.insert("terminal", null, values);
+        return new Long(dataBase.insert("terminal", null, values)).intValue();
     }
+
     public void remover(int id) {
         SQLiteDatabase dataBase = database.getWritableDatabase();
 
@@ -58,6 +72,7 @@ public class TerminalDAO {
 
         dataBase.delete("terminal", "_id = ?", filtros);
     }
+
     public void editar(Terminal terminal) {
         SQLiteDatabase dataBase = database.getWritableDatabase();
 
@@ -72,6 +87,7 @@ public class TerminalDAO {
 
         dataBase.update("terminal", values, "_id = ?", filtros);
     }
+
     public Terminal buscar(int id) {
         Terminal terminal = null;
         SQLiteDatabase dataBase = database.getReadableDatabase();
@@ -94,6 +110,7 @@ public class TerminalDAO {
 
         return terminal;
     }
+
     public ArrayList<Terminal> buscarTodasosTerminais() {
         ArrayList<Terminal> linhas = new ArrayList<Terminal>();
         SQLiteDatabase dataBase = database.getReadableDatabase();

@@ -3,10 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <ImageView
 
-        android:src="@drawable/orbit"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:contentDescription="SplatScreen" />
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:src="@drawable/imadesignmaster"
+        android:scaleType="centerCrop"/>
+
+
 </LinearLayout>

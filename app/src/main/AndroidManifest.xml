@@ -18,11 +18,10 @@
         <activity android:name=".view.AvaliacaoActivity" />
         <activity android:name=".view.CadastroActivity" />
         <activity android:name=".view.PesquisaSaldoActivity" />
-        <activity android:name=".view.LoginActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".view.ListaOnibusActivity" />
+        <activity android:name=".view.ListaHorarioActivity" />
         <activity android:name=".view.HorarioActivity" />
-        <activity android:name=".view.SplashScreenActivity"
+        <activity
+            android:name=".view.SplashScreenActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -44,7 +43,11 @@
 
         <activity
             android:name=".view.MapaActivity"
-            android:label="@string/title_activity_mapa"></activity>
+            android:label="@string/title_activity_mapa" />
+        <activity
+            android:name=".NavigationDrawer"
+            android:label="@string/title_activity_navigation_drawer"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

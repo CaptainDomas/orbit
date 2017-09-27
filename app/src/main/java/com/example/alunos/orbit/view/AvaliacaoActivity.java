@@ -29,7 +29,6 @@ public class AvaliacaoActivity extends AppCompatActivity {
     public void addListenerOnRatingBar() {
         ratingBar = (RatingBar) findViewById(R.id.ratingBar);
         txtValorAvaliacao = (TextView) findViewById(R.id.txtValorAvaliacao);
-
         //se o valor de avaliação mudar,
         //exiba o valor de avaliação atual no resultado (textview) automaticamente
         ratingBar.setOnRatingBarChangeListener(new OnRatingBarChangeListener() {
@@ -48,7 +47,6 @@ public class AvaliacaoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(),
-                        
                         String.valueOf(ratingBar.getRating()),
                         Toast.LENGTH_SHORT).show();
             }

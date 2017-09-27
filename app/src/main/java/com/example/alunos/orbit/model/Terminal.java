@@ -15,6 +15,12 @@ public class Terminal {
         this.endereco = endereco;
     }
 
+    public Terminal( String nome, String endereco) {
+
+        this.nome = nome;
+        this.endereco = endereco;
+    }
+
     public int getId() {
         return id;
     }

@@ -9,6 +9,10 @@ import com.example.alunos.orbit.database.DataBase;
 import com.example.alunos.orbit.model.Horario;
 import com.example.alunos.orbit.model.Linha;
 import com.example.alunos.orbit.model.Terminal;
+import com.example.alunos.orbit.model.TipoDiaSemanaEnum;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -19,10 +23,34 @@ public class HorarioDAO {
 
     private DataBase database;
     private Context context;
+    private TerminalDAO terminalDAO;
 
     public HorarioDAO(Context context) {
         database = new DataBase(context);
         this.context = context;
+    }
+
+    public void cargaInicial() {
+        Linha linha10 = new Linha("Rua São Paulo", 10);
+        Terminal terminalpartida = new Terminal("Aterro", "");
+        Terminal terminalsaida = new Terminal("Aterro", "");
+        List<String> partidas = new ArrayList<>();
+        partidas.add("7:00");
+        partidas.add("8:00");
+        partidas.add("9:00");
+        partidas.add("10:00");
+        partidas.add("12:00");
+        partidas.add("13:00");
+        partidas.add("14:00");
+        partidas.add("15:00");
+        partidas.add("16:00");
+        partidas.add("17:00");
+        partidas.add("18:00");
+        partidas.add("19:00");
+        TipoDiaSemanaEnum segundaasexta=TipoDiaSemanaEnum.SEG_SEXTA;
+        Horario horario = new Horario(linha10,terminalpartida,terminalsaida,partidas,segundaasexta);
+        inserir(horario);
+
     }
 
     public static String getTabela() {
@@ -40,23 +68,27 @@ public class HorarioDAO {
         return builder.toString();
     }
 
-    public void inserir(Horario novoHorario) {
+    public int inserir(Horario novoHorario) {
         SQLiteDatabase dataBase = database.getWritableDatabase();
-
+        //inserir linha
+        //inserir terminal
+        //inserir
+       // int idTerminal = terminalDAO.inserir();
         ContentValues values = new ContentValues();
         values.put("id", novoHorario.getId());
         values.put("linha", novoHorario.getLinha().getCodigoLinha());
         values.put("terminalSaida", novoHorario.getTerminalSaida().getId());
         values.put("terminalChegada", novoHorario.getTerminalChegada().getId());
 
-        dataBase.insert("horario", null, values);
+        return new Long(dataBase.insert("horario", null, values)).intValue();
+
     }
 
     public void remover(int id) {
         SQLiteDatabase dataBase = database.getWritableDatabase();
 
         String[] filtros = new String[1];
-        filtros[0] = id + "";
+        filtros[0] =  String.valueOf(id);
 
         dataBase.delete("horario", "_id = ?", filtros);
     }
@@ -96,7 +128,8 @@ public class HorarioDAO {
             Terminal terminalSaidaClass = new TerminalDAO(context).buscar(terminalChegada);
             Terminal terminalChegadaClass = new TerminalDAO(context).buscar(terminalChegada);
 
-            horario = new Horario(id,linhaClass,terminalSaidaClass,terminalChegadaClass,null);
+            horario = new Horario(id, linhaClass, terminalSaidaClass, terminalChegadaClass, null);
+
         }
 
         return horario;
