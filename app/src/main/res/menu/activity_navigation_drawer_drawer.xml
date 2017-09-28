@@ -5,19 +5,19 @@
         <item
             android:id="@+id/nav_menu_lateral1"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Menu Lateral 1" />
+            android:title="Saldo" />
         <item
             android:id="@+id/nav_menu_lateral2"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="menu lateral 2" />
+            android:title="Horario" />
         <item
             android:id="@+id/nav_menu_lateral3"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="menu lateral 3" />
+            android:title="Avaliação" />
 
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Orbit">
         <menu>
             <item
                 android:id="@+id/nav_share"

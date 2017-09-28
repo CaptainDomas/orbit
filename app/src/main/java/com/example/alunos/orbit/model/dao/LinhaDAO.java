@@ -34,6 +34,7 @@ public class LinhaDAO {
         builder.append("codigolinha INTEGER NOT NULL");
         builder.append(");");
 
+
         return builder.toString();
     }
 

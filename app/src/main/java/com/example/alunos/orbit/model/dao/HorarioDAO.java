@@ -32,24 +32,66 @@ public class HorarioDAO {
 
     public void cargaInicial() {
         Linha linha10 = new Linha("Rua São Paulo", 10);
-        Terminal terminalpartida = new Terminal("Aterro", "");
-        Terminal terminalsaida = new Terminal("Aterro", "");
-        List<String> partidas = new ArrayList<>();
-        partidas.add("7:00");
-        partidas.add("8:00");
-        partidas.add("9:00");
-        partidas.add("10:00");
-        partidas.add("12:00");
-        partidas.add("13:00");
-        partidas.add("14:00");
-        partidas.add("15:00");
-        partidas.add("16:00");
-        partidas.add("17:00");
-        partidas.add("18:00");
-        partidas.add("19:00");
-        TipoDiaSemanaEnum segundaasexta=TipoDiaSemanaEnum.SEG_SEXTA;
-        Horario horario = new Horario(linha10,terminalpartida,terminalsaida,partidas,segundaasexta);
-        inserir(horario);
+        Terminal terminalsaida10 = new Terminal("Aterro", "");
+        Terminal terminalchegada10 = new Terminal("Garcia", "");
+        List<String> partidas10 = new ArrayList<>();
+        partidas10.add("7:00");
+        partidas10.add("8:00");
+        partidas10.add("9:00");
+        partidas10.add("10:00");
+        partidas10.add("12:00");
+        partidas10.add("13:00");
+        partidas10.add("14:00");
+        partidas10.add("15:00");
+        partidas10.add("16:00");
+        partidas10.add("17:00");
+        partidas10.add("18:00");
+        partidas10.add("19:00");
+        TipoDiaSemanaEnum segundaasexta10 = TipoDiaSemanaEnum.SEG_SEXTA;
+        Horario horario10 = new Horario(linha10, terminalsaida10, terminalchegada10, partidas10, segundaasexta10);
+        inserir(horario10);
+
+
+        Linha linha12 = new Linha("Via escola Agrícola", 12);
+        Terminal terminalsaida12 = new Terminal("Aterro", "Rua Engenheiro Udo Deeke,320");
+        Terminal terminalchegada12 = new Terminal("Fonte", "Rua Amazonas, 545");
+        List<String> partidas12 = new ArrayList<>();
+        partidas12.add("7:00");
+        partidas12.add("8:00");
+        partidas12.add("9:00");
+        partidas12.add("10:00");
+        partidas12.add("12:00");
+        partidas12.add("13:00");
+        partidas12.add("14:00");
+        partidas12.add("15:00");
+        partidas12.add("16:00");
+        partidas12.add("17:00");
+        partidas12.add("18:00");
+        partidas12.add("19:00");
+        TipoDiaSemanaEnum segundaasexta12 = TipoDiaSemanaEnum.SEG_SEXTA;
+        Horario horario12 = new Horario(linha12, terminalsaida12, terminalchegada12, partidas12, segundaasexta12);
+        inserir(horario12);
+
+
+        Linha linha15 = new Linha("Via ponte Tamarindo", 15);
+        Terminal terminalsaida15 = new Terminal("Fortaleza", "Rua Guilherme Lueders,267");
+        Terminal terminalchegada15 = new Terminal("Fonte", "Rua da Glória, 1221");
+        List<String> partidas15 = new ArrayList<>();
+        partidas15.add("7:00");
+        partidas15.add("8:00");
+        partidas15.add("9:00");
+        partidas15.add("10:00");
+        partidas15.add("12:00");
+        partidas15.add("13:00");
+        partidas15.add("14:00");
+        partidas15.add("15:00");
+        partidas15.add("16:00");
+        partidas15.add("17:00");
+        partidas15.add("18:00");
+        partidas15.add("19:00");
+        TipoDiaSemanaEnum segundaasexta15 = TipoDiaSemanaEnum.SEG_SEXTA;
+        Horario horario15 = new Horario(linha15, terminalsaida15, terminalchegada15, partidas15, segundaasexta15);
+        inserir(horario15);
 
     }
 
@@ -73,7 +115,7 @@ public class HorarioDAO {
         //inserir linha
         //inserir terminal
         //inserir
-       // int idTerminal = terminalDAO.inserir();
+        // int idTerminal = terminalDAO.inserir();
         ContentValues values = new ContentValues();
         values.put("id", novoHorario.getId());
         values.put("linha", novoHorario.getLinha().getCodigoLinha());
@@ -88,7 +130,7 @@ public class HorarioDAO {
         SQLiteDatabase dataBase = database.getWritableDatabase();
 
         String[] filtros = new String[1];
-        filtros[0] =  String.valueOf(id);
+        filtros[0] = String.valueOf(id);
 
         dataBase.delete("horario", "_id = ?", filtros);
     }
@@ -129,9 +171,7 @@ public class HorarioDAO {
             Terminal terminalChegadaClass = new TerminalDAO(context).buscar(terminalChegada);
 
             horario = new Horario(id, linhaClass, terminalSaidaClass, terminalChegadaClass, null);
-
         }
-
         return horario;
     }
 

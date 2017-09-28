@@ -16,7 +16,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".view.AvaliacaoActivity" />
-        <activity android:name=".view.CadastroActivity" />
         <activity android:name=".view.PesquisaSaldoActivity" />
         <activity android:name=".view.ListaHorarioActivity" />
         <activity android:name=".view.HorarioActivity" />
