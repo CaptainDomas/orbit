@@ -33,9 +33,7 @@ public class Horario {
         this.tipoDiaSemana = tipoDiaSemana;
     }
 
-    public Horario(int id, Linha linhaClass, Terminal terminalSaidaClass, Terminal terminalChegadaClass, Object tipoDiaSemana) {
 
-    }
 
     public int getId() {
         return id;
