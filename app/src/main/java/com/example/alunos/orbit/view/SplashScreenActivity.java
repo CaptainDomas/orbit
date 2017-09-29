@@ -17,7 +17,7 @@ public class SplashScreenActivity extends AppCompatActivity implements Runnable 
     }
 
     public void run() {
-        startActivity(new Intent(this,MapaActivity.class));
+        startActivity(new Intent(this,ListaHorarioActivity.class));
         //TODO trocar loginAcitivity para o mapa activity;
         finish();
     }

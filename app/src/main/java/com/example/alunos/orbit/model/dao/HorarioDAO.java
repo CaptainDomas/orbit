@@ -14,6 +14,8 @@ import com.example.alunos.orbit.model.TipoDiaSemanaEnum;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.R.attr.id;
+
 
 /**
  * Created by Avell 1513 on 08/09/2017.
@@ -170,9 +172,37 @@ public class HorarioDAO {
             Terminal terminalSaidaClass = new TerminalDAO(context).buscar(terminalChegada);
             Terminal terminalChegadaClass = new TerminalDAO(context).buscar(terminalChegada);
 
-            horario = new Horario(id, linhaClass, terminalSaidaClass, terminalChegadaClass, null);
+            Horario horario = new Horario(id, linhaClass, terminalSaidaClass, terminalChegadaClass, null);
         }
         return horario;
     }
 
+    public ArrayList<Horario> buscarTodos() {
+        ArrayList<Horario> horarios = new ArrayList<Horario>();
+        SQLiteDatabase dataBase = database.getReadableDatabase();
+
+        String sql = "SELECT id, linha, terminalSaida, terminalChegada FROM horario WHERE id = ?";
+        String[] filtros = new String[1];
+        filtros[0] = id + "";
+
+        Cursor cursor = dataBase.rawQuery(sql, filtros);
+        while (cursor.moveToNext()) {
+
+            int linha = cursor.getInt(1);
+            int terminalSaida = cursor.getInt(2);
+            int terminalChegada = cursor.getInt(3);
+
+            Linha linhaClass = new LinhaDAO(context).buscar(linha);
+            Terminal terminalSaidaClass = new TerminalDAO(context).buscar(terminalSaida);
+            Terminal terminalChegadaClass = new TerminalDAO(context).buscar(terminalChegada);
+
+            Horario horario = new Horario(linhaClass, terminalSaidaClass, terminalChegadaClass, null, null);
+
+            horarios.add(horario);
+        }
+
+        return horarios;
+    }
 }
+
+
