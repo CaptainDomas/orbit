@@ -2,7 +2,7 @@
 
     <!-- Base application theme. -->
 
-    <style name="AppTheme" parent="android:Theme.Material">
+    <style name="AppTheme" parent="android:Theme.DeviceDefault">
         <item name="colorPrimary">#b760e6</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
